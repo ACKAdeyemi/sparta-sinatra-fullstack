@@ -12,6 +12,8 @@ class StaticController < Sinatra::Base
 
   # INDEX
   get '/' do
-    "HOME PAGE"
+    @title = "YumTree Homepage"
+
+    erb :'static/index'
   end
 end

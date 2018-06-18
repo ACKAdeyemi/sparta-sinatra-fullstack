@@ -12,12 +12,18 @@ class DrinksController < Sinatra::Base
 
   # INDEX
   get '/drinks' do
-    "DRINKS PAGE"
+    @title = "The Drinks We Offer"
+    @drinks = Drink.all
+
+    erb :'drinks/index'
   end
 
   # NEW
-  get '/drinks/new'  do
+  get '/drinks/new' do
+    @title = "Enter New Drink"
+    @drink = Drink.new
 
+    erb :'drinks/new'
   end
 
   # SHOW
@@ -25,27 +31,52 @@ class DrinksController < Sinatra::Base
     # get the ID and turn it in to an integer
     id = params[:id].to_i
 
+    @drink = Drink.find id
+
+    erb :'drinks/show'
   end
 
   # CREATE
-  post '/drinks' do
+  post '/drinks/' do
+    drink = Drink.new
 
+    drink.title = params[:title]
+    drink.description = params[:description]
+
+    drink.save
+
+    redirect '/drinks'
   end
 
   # EDIT
   get '/drinks/:id/edit'  do
     id = params[:id].to_i
 
+    @drink = Drink.find id
+
+    erb :'drinks/edit'
   end
 
   # UPDATE
   put '/drinks/:id'  do
     id = params[:id].to_i
 
+    drink = Drink.find id
+
+    drink.title = params[:title]
+    drink.description = params[:description]
+
+    drink.save
+
+    redirect '/drinks'
   end
 
   # DESTROY
   delete '/drinks/:id'  do
+    id = params[:id].to_i
 
+    Drink.destroy id
+
+    redirect '/drinks'
   end
 end

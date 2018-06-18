@@ -12,12 +12,18 @@ class MealsController < Sinatra::Base
 
   # INDEX
   get '/meals' do
-    "MEALS PAGE"
+    @title = "The Meals We Offer"
+    @meals = Meal.all
+
+    erb :'meals/index'
   end
 
   # NEW
-  get '/meals/new'  do
+  get '/meals/new' do
+    @title = "Enter New Meal"
+    @meal = Meal.new
 
+    erb :'meals/new'
   end
 
   # SHOW
@@ -25,27 +31,52 @@ class MealsController < Sinatra::Base
     # get the ID and turn it in to an integer
     id = params[:id].to_i
 
+    @meal = Meal.find id
+
+    erb :'meals/show'
   end
 
   # CREATE
-  post '/meals' do
+  post '/meals/' do
+    meal = Meal.new
 
+    meal.title = params[:title]
+    meal.description = params[:description]
+
+    meal.save
+
+    redirect '/meals'
   end
 
   # EDIT
   get '/meals/:id/edit'  do
     id = params[:id].to_i
 
+    @meal = Meal.find id
+
+    erb :'meals/edit'
   end
 
   # UPDATE
   put '/meals/:id'  do
     id = params[:id].to_i
 
+    meal = Meal.find id
+
+    meal.title = params[:title]
+    meal.description = params[:description]
+
+    meal.save
+
+    redirect '/meals'
   end
 
   # DESTROY
   delete '/meals/:id'  do
+    id = params[:id].to_i
 
+    Meal.destroy id
+
+    redirect '/meals'
   end
 end

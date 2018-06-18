@@ -1,0 +1,11 @@
+<%= erb(:'partials/drinks-nav') %>
+
+<h1><%= @drink.title %></h1>
+<p><%= @drink.description %></p>
+<a href="/drinks/<%= @drink.id %>/edit">edit</a>
+<br>
+<img src="#" alt="">
+<form action="/drinks/<%= @drink.id %>" method="post">
+  <input type="submit" value="Delete">
+  <input type="hidden" name="_method" value="DELETE">
+</form>

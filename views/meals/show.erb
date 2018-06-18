@@ -1,0 +1,11 @@
+<%= erb(:'partials/meals-nav') %>
+
+<h1><%= @meal.title %></h1>
+<p><%= @meal.description %></p>
+<a href="/meals/<%= @meal.id %>/edit">edit</a>
+<br>
+<img src="#" alt="">
+<form action="/meals/<%= @meal.id %>" method="post">
+  <input type="submit" value="Delete">
+  <input type="hidden" name="_method" value="DELETE">
+</form>

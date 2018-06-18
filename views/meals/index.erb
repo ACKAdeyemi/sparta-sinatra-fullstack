@@ -1,0 +1,17 @@
+<%= erb(:'partials/meals-nav') %>
+
+<h1>The Meals We Offer!</h1>
+
+<% @meals.each do |meal| %>
+  <div>
+    <h3><a href="/meals/<%= meal.id %>"><%= meal.title %></a></h3>
+    <p><%= meal.description %></p>
+  </div>
+
+  <div class="list-container">
+    <ul>
+      <li><a href="#">Link 1</a></li>
+    </ul>
+    <img src="#" alt="">
+  </div>
+<% end %>

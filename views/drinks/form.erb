@@ -1,0 +1,18 @@
+<form action="/drinks/<%= @drink.id %>" method="POST">
+  <div>
+    <label>Title</label>
+    <input type="text" name="title" placeholder="Enter a title" value="<%= @drink.title %>">
+  </div>
+
+  <div>
+    <label>Description</label>
+    <textarea name="description"><%= @drink.description %></textarea>
+  </div>
+
+  <div>
+    <input type="submit" value="Save Drink">
+  </div>
+  <% if(@drink.id) %>
+    <input type="hidden" name="_method" value="PUT">
+  <% end %>
+</form>
