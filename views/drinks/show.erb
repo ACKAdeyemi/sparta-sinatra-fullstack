@@ -2,9 +2,9 @@
 
 <h1><%= @drink.title %></h1>
 <p><%= @drink.description %></p>
-<a href="/drinks/<%= @drink.id %>/edit">edit</a>
+<img src="/images/drinks-logo.png" alt="Image of a Drink">
 <br>
-<img src="#" alt="">
+<a href="/drinks/<%= @drink.id %>/edit">EDIT</a>
 <form action="/drinks/<%= @drink.id %>" method="post">
   <input type="submit" value="Delete">
   <input type="hidden" name="_method" value="DELETE">

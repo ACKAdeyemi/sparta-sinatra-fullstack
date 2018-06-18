@@ -2,9 +2,9 @@
 
 <h1><%= @meal.title %></h1>
 <p><%= @meal.description %></p>
-<a href="/meals/<%= @meal.id %>/edit">edit</a>
+<img src="/images/meals-logo.png" alt="Image of a Meal">
 <br>
-<img src="#" alt="">
+<a href="/meals/<%= @meal.id %>/edit">EDIT</a>
 <form action="/meals/<%= @meal.id %>" method="post">
   <input type="submit" value="Delete">
   <input type="hidden" name="_method" value="DELETE">

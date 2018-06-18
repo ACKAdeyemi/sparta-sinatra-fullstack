@@ -1,14 +1,10 @@
 <%= erb(:'partials/drinks-nav') %>
 
-<h1>The Drinks We Offer!</h1>
+<h1>Your Restaurant's Drinks Menu!</h1>
 
 <% @drinks.each do |drink| %>
   <div>
-    <h3><a href="/drinks/<%= drink.id %>"><%= drink.title %></a></h3>
+    <h3><a href="/drinks/<%= drink.id %>"><%= drink.title %> <i class="fa fa-glass"></i></a></h3>
     <p><%= drink.description %></p>
-  </div>
-
-  <div class="image-container">
-    <img src="#" alt="">
   </div>
 <% end %>
