@@ -11,9 +11,13 @@
   </head>
 
   <body>
-    <%= erb(:'partials/nav') %>
-    <!-- our template content will be injected here -->
-    <%= yield %>
-    <%= erb(:'partials/footer') %>
-  </body>
+    <div class="site-container">
+      <%= erb(:'partials/nav') %>
+      <!-- our template content will be injected here -->
+      <main class="main-container">
+        <%= yield %>
+      </main>
+      <%= erb(:'partials/footer') %>
+    </body>
+  </div>
 </html>
